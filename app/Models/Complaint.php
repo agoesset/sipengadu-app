@@ -13,7 +13,7 @@ class Complaint extends Model
     protected $fillable = [
         'title',
         'description',
-        'status',
+        'status',   // 'pending', 'proses', 'selesai'
         'image',
         'user_id',
         'guest_name',

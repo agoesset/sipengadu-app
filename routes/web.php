@@ -34,6 +34,7 @@ Route::group(['middleware' => 'auth'], function () {
 Route::prefix('admin')->middleware(['auth','isAdmin'])->name('admin.')->group(function(){
     Route::get('/', DashboardController::class)->name('index');
     Route::get('/semua-pengaduan', [AdminController::class, 'semuaPengaduan'])->name('semua.pengaduan');
+    Route::get('/semua-pengaduan/pending', [AdminController::class, 'semuaPendingPengaduan'])->name('semua.pending.pengaduan');
     Route::get('/pengaduan/{id_pengaduan}/tanggapi', [AdminController::class, 'tanggapiPengaduan'])->name('tanggapi.pengaduan');
     Route::post('/pengaduan/store', [AdminController::class, 'storePengaduan'])->name('store.pengaduan');
 });

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Helpers\UpdateStatusComplaintHelper;
 use App\Http\Controllers\Controller;
 use App\Models\Complaint;
 use App\Models\ComplaintResponse;
@@ -33,7 +34,7 @@ class AdminController extends Controller
             $image->storeAs('public/complaint_responses', $image->hashName());
         }
 
-        Complaint::find($request->complaint_id);
+        UpdateStatusComplaintHelper::updateStatus($request->complaint_id);
 
         ComplaintResponse::create([
             'complaint_id'  => $request->complaint_id,
@@ -42,6 +43,30 @@ class AdminController extends Controller
             'image'         => $image->hashName(),
         ]);
 
-        return redirect()->back()->with('msg', 'Pengaduan Ditanggapi!');
+        return redirect()->route('admin.semua.pengaduan')->with('msg', 'Pengaduan ditanggapi dan sedang diproses!');
+    }
+
+    public function semuaPendingPengaduan()
+    {
+        $complaints = Complaint::where('status','pending')->get();
+        return view('dashboard.admin-role.pending-pengaduan',[
+            'complaints' => $complaints
+        ]);
+    }
+
+    public function semuaProsesPengaduan()
+    {
+        $complaints = Complaint::where('status','proses')->get();
+        return view('dashboard.admin-role.proses-pengaduan',[
+            'complaints' => $complaints
+        ]);
+    }
+
+    public function semuaSelesaiPengaduan()
+    {
+        $complaints = Complaint::where('status','selesai')->get();
+        return view('dashboard.admin-role.selesai-pengaduan',[
+            'complaints' => $complaints
+        ]);
     }
 }
