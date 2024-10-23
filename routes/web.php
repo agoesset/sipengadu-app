@@ -31,22 +31,23 @@ Route::group(['middleware' => 'auth'], function () {
     // Route::get('/home', [HomeController::class, 'index'])->name('home');
 });
 
-Route::prefix('admin')->middleware(['auth','isAdmin'])->name('admin.')->group(function(){
+Route::prefix('admin')->middleware(['auth', 'isAdmin'])->name('admin.')->group(function () {
     Route::get('/', DashboardController::class)->name('index');
     Route::get('/semua-pengaduan', [AdminController::class, 'semuaPengaduan'])->name('semua.pengaduan');
     Route::get('/semua-pengaduan/pending', [AdminController::class, 'semuaPendingPengaduan'])->name('semua.pending.pengaduan');
+    Route::get('/semua-pengaduan/proses', [AdminController::class, 'semuaProsesPengaduan'])->name('semua.proses.pengaduan');
+    Route::get('/semua-pengaduan/selesai', [AdminController::class, 'semuaSelesaiPengaduan'])->name('semua.selesai.pengaduan');
     Route::get('/pengaduan/{id_pengaduan}/tanggapi', [AdminController::class, 'tanggapiPengaduan'])->name('tanggapi.pengaduan');
     Route::post('/pengaduan/store', [AdminController::class, 'storePengaduan'])->name('store.pengaduan');
 });
 
-Route::prefix('user')->middleware(['auth','isUser'])->name('user.')->group(function(){
+Route::prefix('user')->middleware(['auth', 'isUser'])->name('user.')->group(function () {
     Route::get('/', DashboardController::class)->name('index');
     Route::get('/riwayat-pengaduan', [UserRoleController::class, 'riwayatPengaduan'])->name('riwayat.pengaduan');
 });
 
 // Route::group(['middleware' => 'guest'], function () {
-//     Auth::routes(['login' => false]); 
-//     Auth::routes(['register' => false]); 
+//     Auth::routes(['login' => false]);
+//     Auth::routes(['register' => false]);
 // });
 // Auth::routes()
-

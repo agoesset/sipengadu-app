@@ -1,6 +1,6 @@
 @extends('layouts.base-app')
 
-@section('title', 'Pending Pengaduan')
+@section('title', 'Selesai Pengaduan')
 
 @section('css')
 <link rel="stylesheet" href="{{asset('mazer/assets/extensions/simple-datatables/style.css')}}">
@@ -42,8 +42,8 @@
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Pending Pengaduan</h3>
-                <p class="text-subtitle text-muted">Pending pengaduan anda akan ditampilkan disini.</p>
+                <h3>Selesai Pengaduan</h3>
+                <p class="text-subtitle text-muted">Selesai pengaduan anda akan ditampilkan disini.</p>
             </div>
         </div>
     </div>
@@ -51,7 +51,7 @@
         <div class="card">
             <div class="card-header">
                 <h5 class="card-title">
-                    Pending Pengaduan
+                    Selesai Pengaduan
                 </h5>
             </div>
             <div class="card-body">

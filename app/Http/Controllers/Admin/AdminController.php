@@ -14,14 +14,14 @@ class AdminController extends Controller
     public function semuaPengaduan()
     {
         $complaints = Complaint::all();
-        return view('dashboard.admin-role.semua-pengaduan',[
+        return view('dashboard.admin-role.semua-pengaduan', [
             'complaints' => $complaints
         ]);
     }
 
     public function tanggapiPengaduan(Complaint $id_pengaduan)
     {
-        return view('dashboard.admin-role.tanggapi-pengaduan',[
+        return view('dashboard.admin-role.tanggapi-pengaduan', [
             'complaint' => $id_pengaduan
         ]);
     }
@@ -48,24 +48,24 @@ class AdminController extends Controller
 
     public function semuaPendingPengaduan()
     {
-        $complaints = Complaint::where('status','pending')->get();
-        return view('dashboard.admin-role.pending-pengaduan',[
+        $complaints = Complaint::where('status', 'pending')->get();
+        return view('dashboard.admin-role.pending-pengaduan', [
             'complaints' => $complaints
         ]);
     }
 
     public function semuaProsesPengaduan()
     {
-        $complaints = Complaint::where('status','proses')->get();
-        return view('dashboard.admin-role.proses-pengaduan',[
+        $complaints = Complaint::where('status', 'proses')->get();
+        return view('dashboard.admin-role.proses-pengaduan', [
             'complaints' => $complaints
         ]);
     }
 
     public function semuaSelesaiPengaduan()
     {
-        $complaints = Complaint::where('status','selesai')->get();
-        return view('dashboard.admin-role.selesai-pengaduan',[
+        $complaints = Complaint::where('status', 'selesai')->get();
+        return view('dashboard.admin-role.selesai-pengaduan', [
             'complaints' => $complaints
         ]);
     }
