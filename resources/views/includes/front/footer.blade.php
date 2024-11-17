@@ -6,7 +6,7 @@
             </div>
             <div class="float-end">
                 <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a
-                    href="https://febryann.my.id">Febryan</a></p>
+                        href="https://aguss.id">Agus</a></p>
             </div>
         </div>
     </div>
