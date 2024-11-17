@@ -12,7 +12,7 @@ class FrontController extends Controller
     {
         $complaints = Complaint::all();
         // return $complaints;
-        return view('front.semua-pengaduan',[
+        return view('front.semua-pengaduan', [
             'complaints' => $complaints,
         ]);
     }
@@ -28,7 +28,7 @@ class FrontController extends Controller
         $pending = Complaint::where('status', 'pending')->count();
         $proses = Complaint::where('status', 'proses')->count();
         $selesai = Complaint::where('status', 'selesai')->count();
-        return view('front.statistik',[
+        return view('front.statistik', [
             'all'       => $all,
             'pending'   => $pending,
             'proses'    => $proses,
