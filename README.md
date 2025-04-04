@@ -35,7 +35,7 @@ git clone https://github.com/Programmer-2024/Public-Complaints.git
 
 After successfully cloning the project, follow these steps:
 
-- cd Public-Complaints
+- cd sipengadu-app
 - composer install
 - cp .env.example .env
 - edit the connection to the database first
